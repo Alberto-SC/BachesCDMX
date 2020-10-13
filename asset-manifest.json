@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/BachesCDMX/static/css/main.5ecd60fb.chunk.css",
+    "main.js": "/BachesCDMX/static/js/main.712c76d8.chunk.js",
+    "main.js.map": "/BachesCDMX/static/js/main.712c76d8.chunk.js.map",
+    "runtime-main.js": "/BachesCDMX/static/js/runtime-main.58d25413.js",
+    "runtime-main.js.map": "/BachesCDMX/static/js/runtime-main.58d25413.js.map",
+    "static/js/2.1fb50390.chunk.js": "/BachesCDMX/static/js/2.1fb50390.chunk.js",
+    "static/js/2.1fb50390.chunk.js.map": "/BachesCDMX/static/js/2.1fb50390.chunk.js.map",
+    "index.html": "/BachesCDMX/index.html",
+    "precache-manifest.7d135ef0c971619ec8373f3151d3666c.js": "/BachesCDMX/precache-manifest.7d135ef0c971619ec8373f3151d3666c.js",
+    "service-worker.js": "/BachesCDMX/service-worker.js",
+    "static/css/main.5ecd60fb.chunk.css.map": "/BachesCDMX/static/css/main.5ecd60fb.chunk.css.map",
+    "static/js/2.1fb50390.chunk.js.LICENSE.txt": "/BachesCDMX/static/js/2.1fb50390.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.58d25413.js",
+    "static/js/2.1fb50390.chunk.js",
+    "static/css/main.5ecd60fb.chunk.css",
+    "static/js/main.712c76d8.chunk.js"
+  ]
+}
