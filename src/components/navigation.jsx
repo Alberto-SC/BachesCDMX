@@ -60,7 +60,7 @@ export class Navigation extends Component {
                 </a>
               </li>
               <li>
-                <span >
+                <span   >
                 <i class="fa fa-user"></i>
                 <Link activeClassName="active" exact to="/Login">
                   Iniciar sesión 

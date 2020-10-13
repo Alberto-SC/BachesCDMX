@@ -1,4 +1,4 @@
-# React JS Landing Page Template
+# Baches CDMX
 
 
 ### <a href="https://albertosilva123.github.io/BachesCDMX/">LIVE DEMO</a> 
