@@ -1,13 +1,33 @@
 import React, { Component } from "react";
+import { connect } from 'react-redux';
+import { userActions } from '../actions/user'
+import { Button } from 'react-bootstrap';
+
 import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
+  Link,
+  withRouter
 } from "react-router-dom";
 
-export class Navigation extends Component {
+class Navigation extends Component {
+  constructor(props) {
+    super(props);
+
+    this.handleLogout = this.handleLogout.bind(this);
+  }
+  handleLogout() {
+      const { dispatch } = this.props;
+      dispatch(userActions.logout());
+  }
   render() {
+    const { loggedIn, user } = this.props;
+    // let reDirect = !loggedIn ? <Redirect to="/login" push /> : '';
+    let welcomeMessage = !loggedIn ? '' :
+    <li> <h3>Welcome {user.nombre}</h3> <Button className="btn btn-primary" onClick={this.handleLogout}>Logout</Button>
+     <Button className="btn btn-primary"><Link to ="/viewReports" className="white">Ver reportes</Link></Button>
+    </li>; 
     return (
       <nav id="menu" className="navbar navbar-default navbar-fixed-top">
         <div className="container">
@@ -59,22 +79,27 @@ export class Navigation extends Component {
                   Contacto
                 </a>
               </li>
-              <li>
-                <span   >
-                <i class="fa fa-user"></i>
-                <Link activeClassName="active" exact to="/Login">
-                  Iniciar sesión 
-                </Link>
-                </ span>
-              </li>
-              <li>
-                <span>
-                <i class="fa fa-user"></i>
-                <Link activeClassName="active"  exact to="/Registro">
-                    Registrarse
-                </Link>
-                </span>
-              </li>
+              {welcomeMessage?welcomeMessage:
+                <li>
+                  <span   >
+                  <i class="fa fa-user"></i>
+                  {welcomeMessage}
+                  <Link activeClassName="active" exact to="/Login">
+                    Iniciar sesión 
+                  </Link>
+                  </ span>
+                </li>
+              }
+              {welcomeMessage?'':
+                <li>
+                  <span>
+                  <i class="fa fa-user"></i>
+                  <Link activeClassName="active"  exact to="/Sign">
+                      Registrarse
+                  </Link>
+                  </span>
+                </li>
+              }
             </ul>
           </div>
         </div>
@@ -83,4 +108,15 @@ export class Navigation extends Component {
   }
 }
 
-export default Navigation;
+function mapStateToProps(state) {
+  const { loggedIn, user } = state.authentication;
+  return {
+      loggedIn,
+      user
+  };
+}
+
+const connectedApp = withRouter(connect(mapStateToProps)(Navigation));
+export { connectedApp as  Navigation };
+
+
