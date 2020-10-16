@@ -2,6 +2,10 @@
 const passport = require('passport');
 const auth     = require('../models/user');
 const userController = require('../controllers/user');
+const mysql = require('mysql');
+const config = require('../config/mysql');
+
+const connection = mysql.createConnection(config.configDB);
 
 const register = (router) => {
 
@@ -25,6 +29,23 @@ const register = (router) => {
         })(req, res, next);
     });
 
+    router.get('/getData',(req,res) => {
+        connection.query("SELECT * FROM `baches` , `report_baches` ,`users`  where report_baches.id_user = users.id_user and baches.id_bache = report_baches.id_bache", (err, rows) => {
+            if (err)
+                return res.json(err);
+            return res.json(rows);
+        });
+    });
+
+    router.get('/getMyData/',(req,res) => {
+        console.log(req.query);
+        connection.query("SELECT * FROM `baches` , `report_baches` ,`users`  where report_baches.id_user = users.id_user and baches.id_bache = report_baches.id_bache and users.id_user = "+req.query.user+" " , (err, rows) => {
+            if (err)
+                return res.json(err);
+            return res.json(rows);
+        });
+    });
+    
 
     router.get('/logout', (req, res) =>{
         req.session.destroy()

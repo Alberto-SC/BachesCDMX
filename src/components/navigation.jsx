@@ -26,7 +26,10 @@ class Navigation extends Component {
     // let reDirect = !loggedIn ? <Redirect to="/login" push /> : '';
     let welcomeMessage = !loggedIn ? '' :
     <li> <h3>Welcome {user.nombre}</h3> <Button className="btn btn-primary" onClick={this.handleLogout}>Logout</Button>
-     <Button className="btn btn-primary"><Link to ="/viewReports" className="white">Ver reportes</Link></Button>
+        {user.admin?
+        <Button className="btn btn-primary"><Link to ="/Gestionar" className="white">Gestionar reportes</Link></Button>:
+        <Button className="btn btn-primary"><Link to ={{pathname: "/viewReports",state:{usuario:user}}} className="white">Ver mis reportes</Link></Button>}
+
     </li>; 
     return (
       <nav id="menu" className="navbar navbar-default navbar-fixed-top">
@@ -45,7 +48,9 @@ class Navigation extends Component {
               <span className="icon-bar"></span>{" "}
             </button>
             <a className="navbar-brand page-scroll" href="#page-top">
-              Baches CDMX
+              <Link to ="/">
+                Baches CDMX
+              </Link>
             </a>{" "}
           </div>
 
@@ -81,23 +86,23 @@ class Navigation extends Component {
               </li>
               {welcomeMessage?welcomeMessage:
                 <li>
-                  <span   >
+                  <a>
                   <i class="fa fa-user"></i>
                   {welcomeMessage}
                   <Link activeClassName="active" exact to="/Login">
                     Iniciar sesión 
                   </Link>
-                  </ span>
+                  </a> 
                 </li>
               }
               {welcomeMessage?'':
                 <li>
-                  <span>
-                  <i class="fa fa-user"></i>
+                  <a>
+                  {/* <i class="fa fa-user"></i> */}
                   <Link activeClassName="active"  exact to="/Sign">
                       Registrarse
                   </Link>
-                  </span>
+                  </a>
                 </li>
               }
             </ul>

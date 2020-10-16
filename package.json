@@ -13,6 +13,7 @@
     "expess": "0.0.1-security",
     "express-mysql-session": "^2.1.4",
     "express-session": "^1.17.1",
+    "mdbreact": "^4.27.0",
     "mysql": "^2.18.1",
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",

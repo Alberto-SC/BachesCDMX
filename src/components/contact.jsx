@@ -11,7 +11,7 @@ export class Contact extends Component {
                 <h3>Información de contacto</h3>
                 <p>
                   <span>
-                    <i className="fa fa-map-marker"></i> Address
+                    <i className="fa fa-map-marker"></i> Direccion
                   </span>
                   {this.props.data ? this.props.data.address : "loading"}
                 </p>
@@ -24,14 +24,7 @@ export class Contact extends Component {
                   {this.props.data ? this.props.data.phone : "loading"}
                 </p>
               </div>
-              <div className="contact-item">
-                <p>
-                  <span>
-                    <i className="fa fa-envelope-o"></i> Email
-                  </span>{" "}
-                  {this.props.data ? this.props.data.email : "loading"}
-                </p>
-              </div>
+      
             </div>
 
           </div>

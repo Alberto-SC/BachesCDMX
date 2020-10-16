@@ -5,7 +5,7 @@ import Report from "./components/report";
 import viewReport from "./components/viewReports";
 import Login from "./components/auth/login";
 import SignUp from "./components/auth/signup";
-
+import Gestionar from "./components/gestionar";
 
 
 export class App extends Component {
@@ -18,6 +18,7 @@ export class App extends Component {
         <Route path="/Sign" component= {SignUp} />
         <Route path="/Reports" component={Report} />
         <Route path='/viewReports'  component = {viewReport} />
+        <Route path='/Gestionar'  component = {Gestionar} />
         {/* <Route component={NoMatch} /> */}
       </Switch>
     </div>

@@ -1,6 +1,4 @@
-/**
- * Created by adrian on 29/08/2018.
- */
+
 'use strict';
 const passport = require('passport');
 const auth     = require('../models/user');

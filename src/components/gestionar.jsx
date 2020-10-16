@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { MDBBtn, MDBCard, MDBCardBody, MDBCardImage, MDBCardTitle, MDBCardText, MDBCol } from 'mdbreact';
 import "./gestionar.css"
-import { userConstants } from '../constants/user';
 import {Navigation} from './navigation';
     
 export class viewReport extends Component {
@@ -13,8 +12,7 @@ export class viewReport extends Component {
     }
 
     componentDidMount(){
-        console.log(this.props.location.state.usuario);
-        fetch(`/GetMyData/?user=${this.props.location.state.usuario.id_user}`)
+        fetch('/GetData')
         .then((Response)=>Response.json())
         .then((findresponse)=>{
             this.setState({
@@ -26,7 +24,7 @@ export class viewReport extends Component {
         return (
             <div className="overlay">
                 {/* <Navigation className ="Nav_bar"></Navigation> */}
-                <h3 className="title">Mis reportes</h3>
+                <h3 className="title">Reportes</h3>
                 {
                     this.state.data.map((dynamicData)=>
                         <MDBCol className ="cards">
@@ -49,6 +47,11 @@ export class viewReport extends Component {
                                 {/* Some quick example text to build on the card title and make */}
                                 {/* up the bulk of the card&apos;s content. */}
                             </MDBCardText>
+                            {dynamicData.estado_bache =="pendiente"?
+                                <MDBBtn href="#">Asignar</MDBBtn>
+                                :
+                                <MDBBtn href="#">Cerrar</MDBBtn>
+                            }
                             </MDBCardBody>
                         </MDBCard>
                         </MDBCol>

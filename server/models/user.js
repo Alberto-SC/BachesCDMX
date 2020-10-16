@@ -21,6 +21,15 @@ const _login = (User, password, done) => {
     });
 }
 
+
+const _getData = (User, password, done) => {
+    connection.query("SELECT * FROM `baches`", (err, rows) => {
+        if (err)
+            return done(err);
+        return done(null,rows);
+    });
+}
+
 const _getUserById = (id, done) => {
     connection.query("SELECT * FROM `users` WHERE `id` = '" + id + "'", (err, rows) => {
         if (err)
@@ -35,4 +44,5 @@ const _getUserById = (id, done) => {
 
 
 module.exports.login = _login;
+module.exports.getData = _getData;
 module.exports.getUserById = _getUserById;
